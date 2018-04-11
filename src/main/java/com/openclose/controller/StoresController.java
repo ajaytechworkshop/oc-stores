@@ -57,4 +57,10 @@ public class StoresController
 		storesService.delete(storeId);
 	}
 
+	@RequestMapping(value = Constants.URL_GET_SHOP_STATUS, method = RequestMethod.GET)
+	public boolean isOpen(@PathVariable(name = "id") String storeId)
+	{
+		return storesService.checkStoreStatus(storeId);
+	}
+
 }

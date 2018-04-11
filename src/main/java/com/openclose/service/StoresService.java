@@ -17,4 +17,6 @@ public interface StoresService
 	public Stores getStore(String id);
 
 	public void updateStoreStatus(String storeId, boolean isOpen);
+
+	public boolean checkStoreStatus(String storeId);
 }

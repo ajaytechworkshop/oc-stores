@@ -61,4 +61,10 @@ public class StoresServiceImpl implements StoresService
 		}
 	}
 
+	@Override
+	public boolean checkStoreStatus(String storeId)
+	{
+		return getStore(storeId).isOpen();
+	}
+
 }
