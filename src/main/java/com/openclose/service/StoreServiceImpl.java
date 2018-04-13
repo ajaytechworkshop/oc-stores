@@ -6,24 +6,24 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.openclose.bean.Stores;
-import com.openclose.bean.repository.StoresRepository;
+import com.openclose.bean.Store;
+import com.openclose.bean.repository.StoreRepository;
 
 @Service
-public class StoresServiceImpl implements StoresService
+public class StoreServiceImpl implements StoreService
 {
 
 	@Autowired
-	private StoresRepository storesRepo;
+	private StoreRepository storesRepo;
 
 	@Override
-	public void save(Stores store)
+	public void save(Store store)
 	{
 		storesRepo.save(store);
 	}
 
 	@Override
-	public void update(Stores store)
+	public void update(Store store)
 	{
 		storesRepo.save(store);
 	}
@@ -35,13 +35,13 @@ public class StoresServiceImpl implements StoresService
 	}
 
 	@Override
-	public List<Stores> getAll()
+	public List<Store> getAll()
 	{
 		return storesRepo.findAll();
 	}
 
 	@Override
-	public Stores getStore(String id)
+	public Store getStore(String id)
 	{
 		if (storesRepo.findById(id).isPresent())
 		{
@@ -52,10 +52,10 @@ public class StoresServiceImpl implements StoresService
 
 	public void updateStoreStatus(String storeId, boolean isOpen)
 	{
-		Optional<Stores> result = storesRepo.findById(storeId);
+		Optional<Store> result = storesRepo.findById(storeId);
 		if (result.isPresent())
 		{
-			Stores store = result.get();
+			Store store = result.get();
 			store.setOpen(isOpen);
 			storesRepo.save(store);
 		}

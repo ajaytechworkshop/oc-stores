@@ -2,19 +2,19 @@ package com.openclose.service;
 
 import java.util.List;
 
-import com.openclose.bean.Stores;
+import com.openclose.bean.Store;
 
-public interface StoresService
+public interface StoreService
 {
-	public void save(Stores store);
+	public void save(Store store);
 
-	public void update(Stores store);
+	public void update(Store store);
 
 	public void delete(String id);
 
-	public List<Stores> getAll();
+	public List<Store> getAll();
 
-	public Stores getStore(String id);
+	public Store getStore(String id);
 
 	public void updateStoreStatus(String storeId, boolean isOpen);
 

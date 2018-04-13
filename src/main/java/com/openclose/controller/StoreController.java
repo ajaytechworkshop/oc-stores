@@ -9,58 +9,58 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.openclose.bean.Stores;
+import com.openclose.bean.Store;
 import com.openclose.config.Constants;
-import com.openclose.service.StoresService;
+import com.openclose.service.StoreService;
 
 @RestController
 @RequestMapping(value = Constants.URL_CONTEXT_ROOT)
-public class StoresController
+public class StoreController
 {
 	@Autowired
-	private StoresService storesService;
+	private StoreService storeService;
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public void createStores(@RequestBody Stores store)
+	public void createStores(@RequestBody Store store)
 	{
-		storesService.save(store);
+		storeService.save(store);
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.PUT)
-	public void updateStores(@RequestBody Stores store)
+	public void updateStores(@RequestBody Store store)
 	{
-		storesService.update(store);
+		storeService.update(store);
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public List<Stores> getAllStores()
+	public List<Store> getAllStores()
 	{
-		return storesService.getAll();
+		return storeService.getAll();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Stores getStore(@PathVariable(name = "id") String storeId)
+	public Store getStore(@PathVariable(name = "id") String storeId)
 	{
-		return storesService.getStore(storeId);
+		return storeService.getStore(storeId);
 	}
 
 	@RequestMapping(value = "/{id}/{isopen}", method = RequestMethod.PUT)
 	public void updateStoreStatus(@PathVariable(name = "id") String storeId,
 			@PathVariable(name = "isopen") boolean isOpen)
 	{
-		storesService.updateStoreStatus(storeId, isOpen);
+		storeService.updateStoreStatus(storeId, isOpen);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public void deleteStore(@PathVariable(name = "id") String storeId)
 	{
-		storesService.delete(storeId);
+		storeService.delete(storeId);
 	}
 
 	@RequestMapping(value = Constants.URL_GET_SHOP_STATUS, method = RequestMethod.GET)
 	public boolean isOpen(@PathVariable(name = "id") String storeId)
 	{
-		return storesService.checkStoreStatus(storeId);
+		return storeService.checkStoreStatus(storeId);
 	}
 
 }

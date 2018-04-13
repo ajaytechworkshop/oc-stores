@@ -1,8 +1,13 @@
 package com.openclose.bean;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "Users")
 public class User
 {
 	private String name;
+	@Id
 	private String mobileNumber;
 	private String language;
 	private Role role;
@@ -50,10 +55,9 @@ public class User
 	@Override
 	public String toString()
 	{
-		return "User [name=" + name + ", mobileNumber=" + mobileNumber + ", language=" + language + ", getName()="
-				+ getName() + ", getMobileNumber()=" + getMobileNumber() + ", getLanguage()=" + getLanguage()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
-				+ "]";
+		return "User [name=" + name + ", mobileNumber=" + mobileNumber + ", language=" + language + ", getName()=" + getName()
+				+ ", getMobileNumber()=" + getMobileNumber() + ", getLanguage()=" + getLanguage() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
 }
