@@ -19,6 +19,9 @@ public class Store
 	private String mobileNo;
 	private String landlineNo;
 	private String address;
+	private String city;
+	private String state;
+	private String country;
 
 	@GeoSpatialIndexed
 	private Point storeLocation;
@@ -147,12 +150,42 @@ public class Store
 		this.isOpen = isOpen;
 	}
 
+	public String getCity()
+	{
+		return city;
+	}
+
+	public void setCity(String city)
+	{
+		this.city = city;
+	}
+
+	public String getState()
+	{
+		return state;
+	}
+
+	public void setState(String state)
+	{
+		this.state = state;
+	}
+
+	public String getCountry()
+	{
+		return country;
+	}
+
+	public void setCountry(String country)
+	{
+		this.country = country;
+	}
+
 	@Override
 	public String toString()
 	{
-		return "Stores [name=" + name + ", category=" + category + ", businesLogo=" + businesLogo + ", description="
-				+ description + ", mobileNo=" + mobileNo + ", landlineNo=" + landlineNo + ", address=" + address
-				+ ", location=" + storeLocation + ", url=" + url + ", email=" + email + "]";
+		return "Stores [name=" + name + ", category=" + category + ", businesLogo=" + businesLogo + ", description=" + description + ", mobileNo="
+				+ mobileNo + ", landlineNo=" + landlineNo + ", address=" + address + ", location=" + storeLocation + ", url=" + url + ", email="
+				+ email + "]";
 	}
 
 }
