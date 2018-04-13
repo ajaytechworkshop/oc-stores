@@ -45,8 +45,7 @@ public class StoreController
 	}
 
 	@RequestMapping(value = "/{id}/{isopen}", method = RequestMethod.PUT)
-	public void updateStoreStatus(@PathVariable(name = "id") String storeId,
-			@PathVariable(name = "isopen") boolean isOpen)
+	public void updateStoreStatus(@PathVariable(name = "id") String storeId, @PathVariable(name = "isopen") boolean isOpen)
 	{
 		storeService.updateStoreStatus(storeId, isOpen);
 	}
